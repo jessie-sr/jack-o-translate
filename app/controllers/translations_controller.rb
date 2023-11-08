@@ -1,5 +1,14 @@
 class TranslationsController < ApplicationController
 
+    def new
+        @translations = Translation.all
+    end
+
+    def new
+        @translation = Translation.new
+    end
+    
+
     def create
         @translation = Translation.new(translation_params)
         open_ai_service = OpenAiService.new
