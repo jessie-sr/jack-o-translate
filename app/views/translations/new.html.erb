@@ -1,0 +1,7 @@
+<%= form_with model: @translation, local: true do |form| %>
+    <%= form.text_area :input_text, placeholder: 'Enter text to translate...' %>
+    <%= form.select :tone, options_for_select(['Formal', 'Casual', 'Friendly']) %>
+    <%= form.select :context, options_for_select(['General', 'Business', 'Technical']) %>
+    <%= form.submit 'Translate' %>
+  <% end %>
+  
