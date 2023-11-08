@@ -1,6 +1,6 @@
 require 'httparty'
 
-class OpenAIService
+class OpenAiService
   include HTTParty
   base_uri 'https://api.openai.com/v1'
 
