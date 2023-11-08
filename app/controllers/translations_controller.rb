@@ -1,8 +1,8 @@
 class TranslationsController < ApplicationController
-    
+
     def create
         @translation = Translation.new(translation_params)
-        open_ai_service = OpenAIService.new
+        open_ai_service = OpenAiService.new
         response = open_ai_service.translate(@translation.input_text, @translation.tone, @translation.context)
         
         if response.success?
