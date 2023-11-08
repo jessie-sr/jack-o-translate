@@ -16,5 +16,4 @@ test:
 
 production:
   <<: *default
-  database: jack_o_translate_production
   url: <%= ENV['DATABASE_URL'] %>

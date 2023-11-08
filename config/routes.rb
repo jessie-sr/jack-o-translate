@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   resources :translations, only: [:new, :create, :show]
 
   # Defines the root path route ("/")
-  # root "articles#index"
+  root 'pages#home'
 end
