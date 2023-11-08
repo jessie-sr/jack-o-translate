@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :translations, only: [:new, :create, :show]
 
   # Defines the root path route ("/")
-  root 'pages#home'
+  root to => redirect('/translations')
+  
 end
