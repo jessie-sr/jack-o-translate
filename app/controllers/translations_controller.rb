@@ -1,8 +1,9 @@
 class TranslationsController < ApplicationController
 
-    def new
+    def index
         @translations = Translation.all
     end
+
 
     def new
         @translation = Translation.new
@@ -13,9 +14,11 @@ class TranslationsController < ApplicationController
         @translation = Translation.new(translation_params)
         open_ai_service = OpenAiService.new
         response = open_ai_service.translate(@translation.input_text, @translation.tone, @translation.context)
-        
+    
         if response.success?
-          @translation.output_text = response.parsed_response['choices'].first['text']
+          parsed_response = JSON.parse(response.body)
+          @translation.output_text = parsed_response['choices'].first['text']
+    
           if @translation.save
             redirect_to @translation
           else
@@ -27,6 +30,12 @@ class TranslationsController < ApplicationController
         end
       end
       
+
+      def show
+        @translation = Translation.find(params[:id])
+      end
+
+
       private
       
       def translation_params
