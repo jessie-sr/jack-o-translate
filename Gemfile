@@ -72,3 +72,7 @@ group :development, :test do
 end
 
 gem 'pg'
+
+gem 'ruby-openai'
+
+gem 'openai'

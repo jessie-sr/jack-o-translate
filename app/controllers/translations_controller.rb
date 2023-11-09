@@ -15,19 +15,21 @@ class TranslationsController < ApplicationController
         open_ai_service = OpenAiService.new
         response = open_ai_service.translate(@translation.input_text, @translation.tone, @translation.context)
     
-        if response.success?
-          parsed_response = JSON.parse(response.body)
-          @translation.output_text = parsed_response['choices'].first['text']
+        # if !response
+        #   #parsed_response = JSON.parse(response.body)
+        #   @translation.output_text = response
+
+          @translation.output_text = open_ai_service.translate(@translation.input_text, @translation.tone, @translation.context)
     
           if @translation.save
             redirect_to @translation
           else
             render :new
           end
-        else
-          flash[:alert] = "There was an error with the translation service."
-          render :new
-        end
+        # else
+        #   flash[:alert] = "There was an error with the translation service."
+        #   render :new
+        # end
       end
       
 

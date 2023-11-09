@@ -1,5 +1,12 @@
 <h2>Create New Translation</h2>
 
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %> alert-dismissible fade show" role="alert">
+    <%= value %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>
+
 <%= form_with model: @translation, local: true do |form| %>
     <%= form.text_area :input_text, placeholder: 'Enter text to translate...' %>
     <%= form.select :tone, options_for_select(['Formal', 'Casual', 'Friendly']) %>
