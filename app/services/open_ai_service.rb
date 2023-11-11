@@ -16,13 +16,6 @@ class OpenAiService
         }
     ).dig("choices", 0, "message", "content")
 
-    # response = @client.chat(
-    # parameters: {
-    #     model: "gpt-3.5-turbo", # Required.
-    #     messages: [{ role: "user", content: "Hello, my name is Banura. how are you?"}], # Required.
-    #     temperature: 0.7,
-    # })
-
     # If you want to check the response success here and log errors, you could add:
     # unless response.success?
     #   Rails.logger.error "OpenAI Service Error: #{response.code} #{response.message}"
@@ -37,6 +30,6 @@ class OpenAiService
 
   def create_prompt(text, tone, context)
     # Customize the prompt based on the tone and context
-    "Translate #{text} to English with a #{tone.downcase} tone and #{context.downcase} context."
+    "What's the most common/native way to say #{text} in English with a #{tone.downcase} tone and #{context.downcase} context?"
   end
 end

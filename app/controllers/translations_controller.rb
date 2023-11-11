@@ -12,20 +12,26 @@ class TranslationsController < ApplicationController
 
     def create
         @translation = Translation.new(translation_params)
-        open_ai_service = OpenAiService.new
-        response = open_ai_service.translate(@translation.input_text, @translation.tone, @translation.context)
+        # open_ai_service = OpenAiService.new
+        # response = open_ai_service.translate(@translation.input_text, @translation.tone, @translation.context)
     
         # if !response
-        #   #parsed_response = JSON.parse(response.body)
         #   @translation.output_text = response
 
-          @translation.output_text = open_ai_service.translate(@translation.input_text, @translation.tone, @translation.context)
-    
+        # -------correct API call-------
+
+        #   @translation.output_text = open_ai_service.translate(@translation.input_text, @translation.tone, @translation.context)
+        
+        @translation.output_text = "Jack is busying working on other stuff now! Will be back soon 🎃"
+
           if @translation.save
             redirect_to @translation
           else
             render :new
           end
+
+        # ----------------------------
+
         # else
         #   flash[:alert] = "There was an error with the translation service."
         #   render :new
@@ -37,6 +43,12 @@ class TranslationsController < ApplicationController
         @translation = Translation.find(params[:id])
       end
 
+      def destroy
+        @translation = Translation.find(params[:id])
+        @translation.destroy
+        flash[:notice] = "Translation '#{@translation.input_text}' deleted."
+        redirect_to translations_path
+      end
 
       private
       

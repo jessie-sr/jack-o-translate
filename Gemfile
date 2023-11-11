@@ -68,7 +68,14 @@ group :development do
 end
 
 group :development, :test do
+  gem 'cucumber-rails', require: false
   gem 'rspec-rails'
+end
+
+group :test do
+  gem 'rails-controller-testing'
+  gem 'guard-rspec'    
+  gem 'webmock'             # automates re-running tests
 end
 
 gem 'pg'
