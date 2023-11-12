@@ -7,6 +7,7 @@
   </div>
 <% end %>
 
+<!-- 
 <%= form_with model: @translation, local: true do |form| %>
     <%= form.text_area :input_text, placeholder: 'Enter text to translate...' %>
     <%= form.select :tone, options_for_select(['Formal', 'Casual', 'Friendly']) %>
@@ -14,4 +15,21 @@
     <%= form.submit 'Translate', class: 'btn btn-primary' %>
     <%= link_to 'Cancel', translations_path, class: 'btn btn-secondary' %>
   <% end %>
-  
+-->
+
+<%= form_with model: @translation, local: true do |form| %>
+  <%= form.label :input_text, 'I wanna say...', class: 'col-form-label' %>
+  <%= form.text_field :input_text, placeholder: 'Enter text to translate. Ex. Good morning!', class: 'form-control' %>
+
+  <%= form.label :language, 'In...', class: 'col-form-label' %>
+  <%= form.text_field :language, placeholder: 'Enter target language. Ex. Chinese/Japanese/French/...', class: 'form-control' %>
+
+  <%= form.label :tone, 'I wanna sound...', class: 'col-form-label' %>
+  <%= form.text_field :tone, placeholder: 'Enter desired tone. Ex. Casual/Formal/Caring/Sarcastic/...', class: 'form-control' %>
+
+  <%= form.label :context, 'The context of my conversation?', class: 'col-form-label' %>
+  <%= form.text_field :context, placeholder: 'Enter the context of the conversation. Ex. At home; To my parents', class: 'form-control' %>
+
+  <%= form.submit 'Translate', class: 'btn btn-primary mt-3' %>  <!-- Added mt-3 for margin top -->
+  <%= link_to 'Cancel', translations_path, class: 'btn btn-secondary mt-3' %>
+<% end %>

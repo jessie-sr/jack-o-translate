@@ -4,9 +4,10 @@
   <thead>
     <tr>
       <th>Input Text</th>
+      <th>Language</th>
       <th>Tone</th>
       <th>Context</th>
-      <th colspan="3">Actions</th>
+      <th colspan="2">Actions</th>
     </tr>
   </thead>
 
@@ -14,11 +15,12 @@
     <% @translations.each do |translation| %>
       <tr>
         <td><%= translation.input_text %></td>
+        <td><%= translation.language %></td>
         <td><%= translation.tone %></td>
         <td><%= translation.context %></td>
-        <td><%= link_to 'Show', translation %></td>
+        <td><%= link_to 'Show', translation, class: 'btn btn-primary col-6' %></td>
         <td>
-          <%= link_to 'Delete', translation_path(translation), 'data-method': 'delete', 'data-confirm': 'Are you sure?', class: 'btn btn-danger col-2' %>
+          <%= link_to 'Delete', translation_path(translation), 'data-method': 'delete', 'data-confirm': 'Are you sure?', class: 'btn btn-danger col-6' %>
         </td>
       </tr>
     <% end %>
