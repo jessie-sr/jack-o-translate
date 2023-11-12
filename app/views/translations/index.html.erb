@@ -17,6 +17,9 @@
         <td><%= translation.tone %></td>
         <td><%= translation.context %></td>
         <td><%= link_to 'Show', translation %></td>
+        <td>
+          <%= link_to 'Delete', translation_path(translation), 'data-method': 'delete', 'data-confirm': 'Are you sure?', class: 'btn btn-danger col-2' %>
+        </td>
       </tr>
     <% end %>
   </tbody>

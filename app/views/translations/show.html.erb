@@ -5,5 +5,6 @@
 <p><strong>Context:</strong> <%= @translation.context %></p>
 <p><strong>Output Text:</strong> <%= @translation.output_text %></p>
 
+<%= link_to 'Delete', translation_path(@translation), 'data-method': 'delete', 'data-confirm': 'Are you sure?', class: 'btn btn-danger col-2' %>
 <%= link_to 'New Translation', new_translation_path, class: 'btn btn-primary' %>
 <%= link_to 'Back to Homepage', translations_path, class: 'btn btn-secondary' %>
