@@ -86,4 +86,6 @@ gem 'openai'
 
 gem 'devise'
 
-gem 'uglifier'
+# gem 'uglifier'
+
+gem 'sassc-rails'
