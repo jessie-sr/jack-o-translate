@@ -133,7 +133,6 @@ GEM
       railties (>= 3.2)
     erubi (1.12.0)
     event_stream_parser (0.3.0)
-    execjs (2.9.1)
     faraday (2.7.11)
       base64
       faraday-net_http (>= 2.0, < 3.1)
@@ -333,8 +332,6 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    uglifier (4.2.0)
-      execjs (>= 0.3.0, < 3)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.1)
@@ -380,7 +377,6 @@ DEPENDENCIES
   stimulus-rails
   turbo-rails
   tzinfo-data
-  uglifier
   web-console
   webmock
 

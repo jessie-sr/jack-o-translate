@@ -1,0 +1,6 @@
+{
+  "name": "jack-o-translate",
+  "engines": {
+    "node": "14.x"
+  }
+}
