@@ -91,11 +91,23 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # Configure Rails' asset pipeline to precompile assets in production.
+  config.assets.compile = false
+  config.assets.digest = true
+
+  # Enable caching for better performance.
+  config.cache_classes = true
+  config.eager_load = true
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.assets.js_compressor = :uglifier
+  config.assets.css_compressor = :sass
+
+  # Mailer Configuration
+  config.action_mailer.default_url_options = { host: 'https://jack-o-translate-893de48ebf65.herokuapp.com'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
-    port: 587,
+    port: 5432,
     domain: 'https://jack-o-translate-893de48ebf65.herokuapp.com',
     user_name: ENV['GMAIL_USERNAME'],
     password: ENV['GMAIL_PASSWORD'],
@@ -104,4 +116,20 @@ Rails.application.configure do
   }
 
   config.action_mailer.raise_delivery_errors = true
+
+  # Enforce SSL to ensure that all traffic to your site is secure.
+  config.force_ssl = true
+
+  # Set up logging that's appropriate for production.
+  config.log_level = :info
+
+  # Ensure secure headers and other security configurations.
+  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
+  config.ssl_options = { hsts: { subdomains: true } } 
+  
+  # Configure how exceptions are handled
+  config.consider_all_requests_local = false
+  config.action_controller.perform_caching = true
+
+
 end
