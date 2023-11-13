@@ -85,3 +85,5 @@ gem 'ruby-openai'
 gem 'openai'
 
 gem 'devise'
+
+gem 'uglifier'
