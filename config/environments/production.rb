@@ -124,8 +124,8 @@ Rails.application.configure do
   config.log_level = :info
 
   # Ensure secure headers and other security configurations.
-  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
-  config.ssl_options = { hsts: { subdomains: true } } 
+  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
+  # config.ssl_options = { hsts: { subdomains: true } } 
   
   # Configure how exceptions are handled
   config.consider_all_requests_local = false
