@@ -6,12 +6,20 @@
   <%= stylesheet_link_tag 'application', 'media' => 'all' %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
   <nav class="navbar navbar-expand-lg bg-primary text-white mb-3">
     <h1 class="title">Jack O Translate</h1>
   </nav>
+  
   <div class="container">
-    <%= render 'layouts/flash' %>
+    <% flash.each do |name, msg| %>
+      <% if msg.is_a?(String) %>
+        <div class="alert alert-<%= name == 'notice' ? 'success' : 'danger' %>">
+          <%= msg %>
+        </div>
+      <% end %>
+    <% end %>
     <main id="main">
       <%= yield %>
     </main>
