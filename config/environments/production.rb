@@ -96,11 +96,11 @@ Rails.application.configure do
   config.assets.digest = true
 
   # Enable caching for better performance.
-  config.cache_classes = true
-  config.eager_load = true
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  # config.cache_classes = true
+  # config.eager_load = true
+  # config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
   # config.assets.js_compressor = :uglifier
-  config.assets.css_compressor = :sass
+  # config.assets.css_compressor = :sass
 
   # Mailer Configuration
   config.action_mailer.default_url_options = { host: 'https://jack-o-translate-893de48ebf65.herokuapp.com'}
