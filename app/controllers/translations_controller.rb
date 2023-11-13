@@ -1,7 +1,9 @@
 class TranslationsController < ApplicationController
 
+    before_action :authenticate_user!
+
     def index
-        @translations = Translation.all
+        @translations = current_user.translations
     end
 
 
@@ -11,7 +13,7 @@ class TranslationsController < ApplicationController
     
 
     def create
-        @translation = Translation.new(translation_params)
+        @translation = current_user.translations.new(translation_params)
         open_ai_service = OpenAiService.new
         # response = open_ai_service.translate(@translation.input_text, @translation.tone, @translation.context)
     
@@ -40,11 +42,11 @@ class TranslationsController < ApplicationController
       
 
       def show
-        @translation = Translation.find(params[:id])
+        @translation = current_user.translations.find(params[:id])
       end
 
       def destroy
-        @translation = Translation.find(params[:id])
+        @translation = current_user.translations.find(params[:id])
         @translation.destroy
         flash[:notice] = "Translation '#{@translation.input_text}' deleted."
         redirect_to translations_path

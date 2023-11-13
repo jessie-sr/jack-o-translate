@@ -7,4 +7,6 @@ class Translation < ApplicationRecord
 
     validates :output_text, length: { maximum: 2000 }
 
+    belongs_to :user
+
 end

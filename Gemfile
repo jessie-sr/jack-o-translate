@@ -83,3 +83,5 @@ gem 'pg'
 gem 'ruby-openai'
 
 gem 'openai'
+
+gem 'devise'
