@@ -118,10 +118,10 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   # Enforce SSL to ensure that all traffic to your site is secure.
-  config.force_ssl = true
+  # config.force_ssl = true
 
   # Set up logging that's appropriate for production.
-  config.log_level = :info
+  # config.log_level = :info
 
   # Ensure secure headers and other security configurations.
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
