@@ -36,3 +36,4 @@
 
 /.env
 /config/credentials/production.key
+sendgrid.env
