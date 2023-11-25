@@ -7,11 +7,11 @@
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+  <%= link_to "Forgot your password?", new_password_path(resource_name), class: 'text-secondary' %><br />
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation instructions? Make sure you've checked your spam folder!", new_confirmation_path(resource_name) %><br />
+  <%= link_to "Didn't receive confirmation instructions? Make sure you've checked your spam folder!", new_confirmation_path(resource_name), class: 'text-secondary' %><br />
 <% end %>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
@@ -20,6 +20,8 @@
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= button_to "Sign in with Google", omniauth_authorize_path(resource_name, provider), data: { turbo: false }, class: 'btn btn-light mt-2'%><br />
+    <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, class: 'btn btn-light mt-2' do %>
+      <%= image_tag('google-icon.png', size: "18x18", alt: "Google icon") %>  Sign in with Google
+    <% end %><br />
   <% end %>
 <% end %>

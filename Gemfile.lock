@@ -141,6 +141,8 @@ GEM
       multipart-post (~> 2)
     faraday-net_http (3.0.2)
     ffi (1.16.3)
+    font-awesome-rails (4.7.0.8)
+      railties (>= 3.2, < 8.0)
     formatador (1.1.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -390,6 +392,7 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
+  font-awesome-rails
   guard-rspec
   httparty
   importmap-rails
