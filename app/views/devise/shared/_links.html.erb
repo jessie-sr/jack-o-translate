@@ -1,17 +1,23 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name), class: 'btn btn-dark my-3', style: 'width: 185px;'%><br />
+  <%= link_to "Have an account?", new_session_path(resource_name), class: 'text-secondary small' %><br />
 <% end %>
 
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name), class: 'btn btn-outline-dark my-3', style: 'width: 185px;'%><br />
+<% if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <div class="row">
+    <div class="col-md-4.2 text-left ml-3 mr-1">
+      <%= link_to "Sign up", new_registration_path(resource_name), class: 'text-secondary small' %>
+    </div>
+
+    <% if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <div class="col-md-8 text-right ml-2">
+        <%= link_to "Forgot password", new_password_path(resource_name), class: 'text-secondary small' %>
+      </div>
+    <% end %>
+  </div>
 <% end %>
 
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot password", new_password_path(resource_name), class: 'text-secondary' %><br />
-<% end %>
-
-<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation", new_confirmation_path(resource_name), class: 'text-secondary' %><br />
+<%- if devise_mapping.confirmable? && controller_name == 'registrations' %>
+  <%= link_to "Didn't receive confirmation?", new_confirmation_path(resource_name), class: 'text-secondary small' %><br />
 <% end %>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
@@ -19,8 +25,9 @@
 <% end %>
 
 <%- if devise_mapping.omniauthable? %>
+<hr class="mt-2 mb-3">
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, class: 'btn btn-light mt-2' do %>
+    <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, class: 'btn btn-light' do %>
       <%= image_tag('google-icon.png', size: "18x18", alt: "Google icon") %>  Sign in with Google
     <% end %><br />
   <% end %>
