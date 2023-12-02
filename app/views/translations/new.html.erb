@@ -1,4 +1,4 @@
-<h2>Create New Translation</h2>
+<h3>Create New Translation</h3>
 
 <% flash.each do |key, value| %>
   <div class="alert alert-<%= key %> alert-dismissible fade show" role="alert">
@@ -22,7 +22,7 @@
   <%= form.text_field :input_text, placeholder: 'Enter text to translate. Ex. Good morning!', class: 'form-control' %>
 
   <%= form.label :language, 'My target language?', class: 'col-form-label mt-2' %>
-  <%= form.text_field :language, placeholder: 'Enter target language. Ex. Chinese/Japanese/French/...', class: 'form-control' %>
+  <%= form.text_field :language, placeholder: 'Enter target language for translation. Ex. Chinese/Japanese/French/...', class: 'form-control' %>
 
   <%= form.label :tone, 'I wanna sound...', class: 'col-form-label mt-2' %>
   <%= form.text_field :tone, placeholder: 'Enter desired tone. Ex. Casual/Formal/Caring/Sarcastic/...', class: 'form-control' %>
@@ -30,6 +30,6 @@
   <%= form.label :context, 'What\'s the context?', class: 'col-form-label mt-2' %>
   <%= form.text_field :context, placeholder: 'Enter the context of the conversation. Ex. At home; To my parents', class: 'form-control' %>
 
-  <%= form.submit 'Translate', class: 'btn btn-dark mt-4 mr-2' %>  <!-- Added mt-3 for margin top -->
-  <%= link_to 'Cancel', translations_path, class: 'btn btn-light mt-4' %>
+  <%= form.submit 'Translate', class: 'btn btn-dark col-2 mt-4 mr-2' %>  <!-- Added mt-3 for margin top -->
+  <%= link_to 'Cancel', translations_path, class: 'btn btn-light col-2 mt-4' %>
 <% end %>
