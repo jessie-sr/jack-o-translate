@@ -1,10 +1,30 @@
-<h3>Translation Result</h3>
+<div class="container mt-4">
+  <h4 class="font-weight-bold mb-3">Here's Your Translation :D</h4>
 
-<p><strong>Input Text:</strong> <%= @translation.input_text %></p>
-<p><strong>Tone:</strong> <%= @translation.tone %></p>
-<p><strong>Context:</strong> <%= @translation.context %></p>
-<p><strong>Output Text:</strong> <%= @translation.output_text %></p>
+  <!-- Card for Input, Tone, and Context -->
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">Details</h5>
+      <hr class="mt-2 mb-3">
+      <p><strong>Input Text:</strong> <%= @translation.input_text %></p>
+      <p><strong>Tone:</strong> <%= @translation.tone %></p>
+      <p><strong>Context:</strong> <%= @translation.context %></p>
+    </div>
+  </div>
 
-<%= link_to 'New Translation', new_translation_path, class: 'btn btn-dark col-2 mr-2' %>
-<%= link_to 'Back to Homepage', translations_path, class: 'btn btn-light col-2 mr-2' %>
-<%= link_to 'Delete', translation_path(@translation), 'data-method': 'delete', 'data-confirm': 'Are you sure?', class: 'btn btn-danger col-2' %>
+  <!-- Card for Output Text -->
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Translation Result</h5>
+      <hr class="mt-2 mb-3">
+      <p class="card-text" style="font-size: 1.2em;"><%= @translation.output_text %></p>
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="mt-4">
+    <%= link_to 'New Translation', new_translation_path, class: 'btn btn-dark mr-2' %>
+    <%= link_to 'Back to Homepage', translations_path, class: 'btn btn-light mr-2' %>
+    <%= link_to 'Delete', translation_path(@translation), 'data-method': 'delete', 'data-confirm': 'Are you sure?', class: 'btn btn-danger' %>
+  </div>
+</div>
