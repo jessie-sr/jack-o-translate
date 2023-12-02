@@ -4,13 +4,13 @@
 
 <% if devise_mapping.registerable? && controller_name != 'registrations' %>
   <div class="row">
-    <div class="col-md-4.2 text-left ml-3 mr-1">
+    <div class="col-sm-3 text-center">
       <%= link_to "Sign up", new_registration_path(resource_name), class: 'text-secondary small' %>
     </div>
 
     <% if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-      <div class="col-md-8 text-right ml-2">
-        <%= link_to "Forgot password", new_password_path(resource_name), class: 'text-secondary small' %>
+      <div class="col-sm-8 text-right ml-4">
+        <%= link_to "Forgot password?", new_password_path(resource_name), class: 'text-secondary small' %>
       </div>
     <% end %>
   </div>
@@ -27,7 +27,7 @@
 <%- if devise_mapping.omniauthable? %>
 <hr class="mt-2 mb-3">
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, class: 'btn btn-light' do %>
+    <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, class: 'btn btn-light', style: 'width: 280px;' do %>
       <%= image_tag('google-icon.png', size: "18x18", alt: "Google icon") %>  Sign in with Google
     <% end %><br />
   <% end %>

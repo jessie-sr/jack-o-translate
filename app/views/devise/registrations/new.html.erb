@@ -6,22 +6,40 @@
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field mt-3">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", style: 'width: 280px;' %>
       </div>
 
       <div class="field mt-3">
-        <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password" %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", style: 'width: 280px;' %>
       </div>
 
       <div class="field mt-3">
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm password", style: 'width: 280px;' %>
       </div>
 
       <div class="actions">
-        <%= f.submit "Sign up", class: 'btn btn-dark mt-3 mb-2', style: 'width: 186px;'%>
+        <%= f.submit "Sign up", class: 'btn btn-dark mt-3 mb-2', style: 'width: 280px;'%>
       </div>
     <% end %>
 
-    <%= render "devise/shared/links" %>
+    <div class="row">
+      <div class="col-sm-3 text-left">
+        <%= link_to "Log in", new_session_path(resource_name), class: 'text-secondary small' %>
+      </div>
+    
+      <div class="col-sm-8 text-right ml-4">
+        <%= link_to "Didn't receive confirmation?", new_confirmation_path(resource_name), class: 'text-secondary small' %><br />
+      </div>
+    </div>
+
+    <%- if devise_mapping.omniauthable? %>
+    <hr class="mt-2 mb-3">
+      <%- resource_class.omniauth_providers.each do |provider| %>
+        <%= button_to omniauth_authorize_path(resource_name, provider), data: { turbo: false }, class: 'btn btn-light', style: 'width: 280px;' do %>
+          <%= image_tag('google-icon.png', size: "18x18", alt: "Google icon") %>  Sign in with Google
+        <% end %><br />
+      <% end %>
+    <% end %>
+
   </div>
 </div>
