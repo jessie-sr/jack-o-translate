@@ -1,0 +1,43 @@
+<%# app/views/translations/edit.html.erb %>
+
+<h4 class="font-weight-bold">Edit Translation</h4>
+
+<%= form_with(model: @translation, local: true) do |form| %>
+  <% if @translation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@translation.errors.count, "error") %> prohibited this translation from being saved:</h2>
+
+      <ul>
+        <% @translation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :input_text %>
+    <%= form.text_area :input_text, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :language %>
+    <%= form.text_field :language, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tone %>
+    <%= form.text_field :tone, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :context %>
+    <%= form.text_field :context, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Update Translation', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<%= link_to 'Back to Translations', translations_path, class: 'btn btn-secondary' %>

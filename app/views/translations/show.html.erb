@@ -7,6 +7,7 @@
       <h5 class="card-title">Details</h5>
       <hr class="mt-2 mb-3">
       <p><strong>Input Text:</strong> <%= @translation.input_text %></p>
+      <p><strong>Language:</strong> <%= @translation.language %></p>
       <p><strong>Tone:</strong> <%= @translation.tone %></p>
       <p><strong>Context:</strong> <%= @translation.context %></p>
     </div>
@@ -17,7 +18,7 @@
     <div class="card-body">
       <h5 class="card-title">Translation Result</h5>
       <hr class="mt-2 mb-3">
-      <p class="card-text" style="font-size: 1.2em;"><%= @translation.output_text %></p>
+      <p class="card-text"><%= @translation.output_text %></p>
     </div>
   </div>
 
