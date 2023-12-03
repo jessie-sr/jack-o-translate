@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable, :omniauthable, omniauth_providers: [:google_oauth2]
 
   has_many :translations, dependent: :destroy
+  has_one_attached :profile_image
 
   before_save :set_username
 
