@@ -36,7 +36,8 @@
     bottom: 110%; /* Position above the icon */
     left: 50%; /* Centering the label */
     transform: translateX(-50%); /* Adjust horizontally */
-    padding: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
     background-color: #000; /* Background of the tooltip */
     color: #fff; /* Text color */
     text-align: center;
