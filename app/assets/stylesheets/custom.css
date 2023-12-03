@@ -4,3 +4,56 @@
     border-radius: 0.25rem;     /* Example border radius */
     /* Add other styles as needed */
 }
+
+.table td:first-child, .table th:first-child {
+    border-right: none;
+  }
+  .table td:last-child, .table th:last-child {
+    border-left: none;
+  }
+  
+  .table td:not(:first-child):not(:last-child),
+  .table th:not(:first-child):not(:last-child) {
+    border-right: none;
+    border-left: none;
+  }
+
+/* Styles for the button containing the icon and label */
+.icon-btn {
+    position: relative; /* Required for absolute positioning of child elements */
+    display: inline-block;
+  }
+  
+  /* Styles for the icon label (tooltip text) */
+  .icon-label {
+    display: none;
+    position: absolute;
+    bottom: 110%; /* Position above the icon */
+    left: 50%; /* Centering the label */
+    transform: translateX(-50%); /* Adjust horizontally */
+    padding: 5px;
+    background-color: #000; /* Background of the tooltip */
+    color: #fff; /* Text color */
+    text-align: center;
+    border-radius: 4px;
+    white-space: nowrap; /* Keeps the text in a single line */
+    font-size: 12px; 
+  }
+  
+  /* Styles for the arrow pointing downwards from the tooltip */
+  .icon-label::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #000 transparent transparent transparent;
+    transform: translateX(-50%);
+  }
+  
+  /* Show label on hover */
+  .icon-btn:hover .icon-label {
+    display: block;
+  }
+  

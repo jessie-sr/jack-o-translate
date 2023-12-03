@@ -1,31 +1,47 @@
 <!--  This file is app/views/movies/index.html.erb -->
 
-<table class="table table-striped col-md-12" id="translations">
-  <thead>
-    <tr>
-      <th>Input Text</th>
-      <th>Language</th>
-      <th>Tone</th>
-      <th>Context</th>
-      <th colspan="2">Actions</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @translations.each do |translation| %>
+<div class="table-responsive">
+  <table class="table table-striped table-hover table-bordered col-md-12" id="translations">
+    <thead>
       <tr>
-        <td><%= translation.input_text %></td>
-        <td><%= translation.language %></td>
-        <td><%= translation.tone %></td>
-        <td><%= translation.context %></td>
-        <td><%= link_to 'Show', translation, class: 'btn btn-dark col-6' %></td>
-        <td>
-          <%= link_to 'Delete', translation_path(translation), 'data-method': 'delete', 'data-confirm': 'Are you sure?', class: 'btn btn-danger col-6' %>
-        </td>
+        <th>Input Text</th>
+        <th>Language</th>
+        <th>Tone</th>
+        <th>Context</th>
+        <th colspan="3">Actions</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @translations.each do |translation| %>
+        <tr>
+          <td class="align-middle"><%= translation.input_text %></td>
+          <td class="align-middle"><%= translation.language %></td>
+          <td class="align-middle"><%= translation.tone %></td>
+          <td class="align-middle"><%= translation.context %></td>
+          <td class="col-sm-1">
+            <%= link_to translation, class: 'btn btn-dark icon-btn' do %>
+              <i class="fas fa-eye"></i> <!-- Font Awesome eye icon for 'Show' -->
+              <span class="icon-label">Show</span>
+            <% end %>
+          </td>
+          <td class="col-sm-1">
+            <%= link_to edit_translation_path(translation), class: 'btn btn-secondary icon-btn' do %>
+              <i class="fas fa-pen-nib icon"></i>
+              <span class="icon-label">Edit</span>
+            <% end %>
+          </td>
+          <td class="col-sm-1">
+            <%= link_to translation_path(translation), 'data-method': 'delete', 'data-confirm': 'Are you sure?', class: 'btn btn-danger icon-btn' do %>
+              <i class="fas fa-trash-alt"></i> <!-- Font Awesome trash icon for 'Delete' -->
+              <span class="icon-label">Delete</span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <%= link_to 'New Translation', new_translation_path, class: 'btn btn-dark col-2 mr-2' %>
 
