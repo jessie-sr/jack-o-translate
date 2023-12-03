@@ -1,4 +1,4 @@
-<%= form_with url: translations_path, method: :get, local: true, class: 'mb-2', id: 'filter_form' do %>
+<%= form_with url: translations_path, method: :get, local: true, class: 'custom custom-form-spacing', id: 'filter_form' do %>
   <div class="form-check form-check-inline mr-3">
     <%= check_box_tag 'time_filter', 'day', params[:time_filter] == 'day', id: 'filter_day', class: 'form-check-input', onchange: 'submitForm()' %>
     <%= label_tag 'filter_day', 'Past day', class: 'form-check-label' %>

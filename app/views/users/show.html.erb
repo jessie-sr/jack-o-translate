@@ -1,0 +1,18 @@
+<%# app/views/users/show.html.erb %>
+
+<h2>User Profile</h2>
+
+<div class="user-info">
+  <p><strong>Username:</strong> <%= @user.username %></p>
+  <p><strong>Email:</strong> <%= @user.email %></p>
+
+  <% if @user.profile_image.attached? %>
+    <%= image_tag(@user.profile_image, alt: "Profile Image") %>
+  <% end %>
+
+  <!-- Add other user info you wish to display -->
+</div>
+
+<%= link_to 'Edit Profile', edit_user_registration_path %>
+<%= link_to 'Back', root_path %>
+

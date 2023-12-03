@@ -5,6 +5,11 @@
     /* Add other styles as needed */
 }
 
+.custom-form-spacing {
+  margin-top: -8px; /* or any other value */
+  margin-bottom: 8px; /* existing mb-2 equivalent */
+}
+
 .table td:first-child, .table th:first-child {
     border-right: none;
   }

@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :translations, dependent: :destroy
 
+  before_save :set_username
+
   def self.from_omniauth(auth)
     user = User.find_or_create_by(email: auth.info.email) do |u|
       u.password = Devise.friendly_token[0, 20]
@@ -17,5 +19,11 @@ class User < ApplicationRecord
       user.save!
     end
     user
+  end
+
+  private
+
+  def set_username
+    self.username = self.email if !self.username
   end
 end
