@@ -1,4 +1,13 @@
-<!--  This file is app/views/movies/index.html.erb -->
+<%= form_with url: translations_path, method: :get, local: true, class: 'mb-2', id: 'filter_form' do %>
+  <div class="form-check form-check-inline mr-3">
+    <%= check_box_tag 'time_filter', 'day', params[:time_filter] == 'day', id: 'filter_day', class: 'form-check-input', onchange: 'submitForm()' %>
+    <%= label_tag 'filter_day', 'Past day', class: 'form-check-label' %>
+  </div>
+  <div class="form-check form-check-inline">
+    <%= check_box_tag 'time_filter', 'week', params[:time_filter] == 'week', id: 'filter_week', class: 'form-check-input', onchange: 'submitForm()' %>
+    <%= label_tag 'filter_week', 'Past week', class: 'form-check-label' %>
+  </div>
+<% end %>
 
 <div class="table-responsive">
   <table class="table table-striped table-hover table-bordered col-md-12" id="translations">

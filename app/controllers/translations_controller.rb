@@ -4,6 +4,12 @@ class TranslationsController < ApplicationController
 
     def index
         @translations = current_user.translations
+
+        if params[:time_filter] == 'day'
+          @translations = @translations.where('created_at >= ?', 1.day.ago)
+        elsif params[:time_filter] == 'week'
+          @translations = @translations.where('created_at >= ?', 1.week.ago)
+        end
     end
 
 
@@ -50,6 +56,25 @@ class TranslationsController < ApplicationController
         @translation.destroy
         flash[:notice] = "Translation '#{@translation.input_text}' deleted."
         redirect_to translations_path
+      end
+
+      def edit
+        @translation = current_user.translations.find(params[:id])
+      end
+      
+      def update
+        @translation = current_user.translations.find(params[:id])
+      
+        if @translation.update(translation_params)
+          open_ai_service = OpenAiService.new
+          @translation.output_text = open_ai_service.translate(@translation.input_text, @translation.language, @translation.tone, @translation.context)
+          if @translation.save
+            flash[:notice] = "Translation updated successfully."
+            redirect_to @translation
+          end
+        else
+          render :edit
+        end
       end
 
       private
