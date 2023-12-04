@@ -1,43 +1,47 @@
 <%# app/views/translations/edit.html.erb %>
 
-<h4 class="font-weight-bold">Edit Translation</h4>
+<div class="container mt-4">
+  <h4 class="font-weight-bold mb-3">Edit Translation</h4>
 
-<%= form_with(model: @translation, local: true) do |form| %>
-  <% if @translation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@translation.errors.count, "error") %> prohibited this translation from being saved:</h2>
-
-      <ul>
-        <% @translation.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %> alert-dismissible fade show" role="alert">
+      <%= value %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :input_text %>
-    <%= form.text_area :input_text, class: 'form-control' %>
-  </div>
+  <%= form_with model: @translation, local: true do |form| %>
 
-  <div class="field">
-    <%= form.label :language %>
-    <%= form.text_field :language, class: 'form-control' %>
-  </div>
+    <div class="card">
+      <div class="card-body">
+      
+        <div class="mb-3">
+          <%= form.label :input_text, 'What would you like to translate today?', class: 'col-form-label font-weight-bold' %>
+          <%= form.text_field :input_text, class: 'form-control custom-style' %>
+        </div>
 
-  <div class="field">
-    <%= form.label :tone %>
-    <%= form.text_field :tone, class: 'form-control' %>
-  </div>
+        <div class="mb-3">
+          <%= form.label :language, 'Which language are we translating to?', class: 'col-form-label font-weight-bold' %>
+          <%= form.text_field :language, class: 'form-control custom-style' %>
+        </div>
 
-  <div class="field">
-    <%= form.label :context %>
-    <%= form.text_field :context, class: 'form-control' %>
-  </div>
+        <div class="mb-3">
+          <%= form.label :tone, 'How should your translation feel? ', class: 'col-form-label font-weight-bold' %>
+          <%= form.text_field :tone, class: 'form-control custom-style' %>
+        </div>
 
-  <div class="actions">
-    <%= form.submit 'Update Translation', class: 'btn btn-primary' %>
-  </div>
-<% end %>
+        <div class="mb-3">
+          <%= form.label :context, 'Let\'s set the scene!', class: 'col-form-label font-weight-bold' %>
+          <%= form.text_field :context, class: 'form-control custom-style' %>
+        </div>
 
-<%= link_to 'Back to Translations', translations_path, class: 'btn btn-secondary' %>
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <%= form.submit 'Update Translation', class: 'btn btn-dark col-2 mr-2' %> 
+      <%= link_to 'Cancel', translations_path, class: 'btn btn-light col-2' %>
+    </div>
+      
+  <% end %>
+</div>

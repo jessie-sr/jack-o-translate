@@ -25,6 +25,6 @@ class User < ApplicationRecord
   private
 
   def set_username
-    self.username = self.email if !self.username
+    self.username = self.email if self.username.blank?
   end
 end
