@@ -1,0 +1,11 @@
+<h2>Translation Requests</h2>
+
+<%= link_to 'New Request', new_post_path %>
+
+<% @posts.each do |post| %>
+  <div>
+    <h3><%= post.content %></h3>  <!-- Customize as per your Post model attributes -->
+    <%= link_to 'View', post_path(post) %>
+    <!-- Add more post details here -->
+  </div>
+<% end %>
