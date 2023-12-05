@@ -3,12 +3,12 @@
 <h2>User Profile</h2>
 
 <div class="user-info">
+  <% if @user.profile_image.attached? %>
+    <%= image_tag(@user.profile_image, alt: "Profile Image", size: "150x150") %>
+  <% end %>
+
   <p><strong>Username:</strong> <%= @user.username %></p>
   <p><strong>Email:</strong> <%= @user.email %></p>
-
-  <% if @user.profile_image.attached? %>
-    <%= image_tag(@user.profile_image, alt: "Profile Image") %>
-  <% end %>
 
   <!-- Add other user info you wish to display -->
 </div>
