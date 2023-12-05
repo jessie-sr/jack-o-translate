@@ -27,6 +27,21 @@ class PostsController < ApplicationController
     def show
       @post = Post.find(params[:id])
     end
+
+    def edit
+        @post = current_user.posts.find(params[:id])
+        # This ensures that users can only edit their own posts
+    end
+
+    def update
+        @post = current_user.posts.find(params[:id])
+        if @post.update(post_params)
+            flash[:notice] = "Your post has been updated."
+            redirect_to @post
+        else
+            render :edit
+        end
+    end
   
     def destroy
       @post = current_user.posts.find(params[:id])
