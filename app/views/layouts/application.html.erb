@@ -31,6 +31,9 @@
           <%= link_to 'Home', translations_path, class: 'nav-link active', aria: { current: 'page' } %>
         </li>
         <li class="nav-item">
+          <%= link_to 'JPortal', posts_path, class: 'nav-link active', aria: { current: 'page' } %>
+        </li>
+        <li class="nav-item">
           <% if user_signed_in? %>
             <%= link_to 'Profile', user_path(current_user), class: 'nav-link active', aria: { current: 'page' } %>
           <% end %>

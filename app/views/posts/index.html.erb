@@ -1,11 +1,11 @@
 <h2>Translation Requests</h2>
 
-<%= link_to 'New Request', new_post_path %>
+<div class="d-flex align-items-center mb-3">
 
-<%= form_with url: posts_path, method: :get, local: true, class: 'custom custom-form-spacing', id: 'posts_filter_form' do %>
-    <div class="form-check">
-        <%= check_box_tag 'user_filter', 'mine', params[:user_filter] == 'mine', id: 'filter_mine', class: 'form-check-input', onchange: 'this.form.submit();' %>
-        <%= label_tag 'filter_mine', 'My Posts', class: 'form-check-label' %>
+  <%= form_with url: posts_path, method: :get, local: true, class: 'flex-grow-1', id: 'posts_filter_form' do %>
+    <div class="form-check form-check-inline mr-3">
+      <%= check_box_tag 'user_filter', 'mine', params[:user_filter] == 'mine', id: 'filter_mine', class: 'form-check-input', onchange: 'this.form.submit();' %>
+      <%= label_tag 'filter_mine', 'My Posts', class: 'form-check-label' %>
     </div>
     <div class="form-check form-check-inline mr-3">
       <%= check_box_tag 'time_filter', 'day', params[:time_filter] == 'day', id: 'filter_day', class: 'form-check-input', onchange: 'submitForm()' %>
@@ -15,13 +15,35 @@
       <%= check_box_tag 'time_filter', 'week', params[:time_filter] == 'week', id: 'filter_week', class: 'form-check-input', onchange: 'submitForm()' %>
       <%= label_tag 'filter_week', 'Past week', class: 'form-check-label' %>
     </div>
-<% end %>
+  <% end %>
+
+  <%= link_to 'New Request', new_post_path, class: 'btn btn-primary text-left' %>
+</div>
 
 <% @posts.each do |post| %>
-  <div>
-    <h3><%= post.content %></h3>
-    <!-- Display other post details here -->
-    <%= link_to 'View', post_path(post) %>
-  </div>
-<% end %>
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-2 d-flex align-items-center">
+          <div class="p-2">
+            <% if post.user.profile_image.attached? %>
+              <%= image_tag(post.user.profile_image, alt: post.user.username, class: "rounded-circle", style: "height: 50px; width: 50px;") %>
+            <% else %>
+              <%= image_tag('default-profile.png', alt: 'Default profile', class: "rounded-circle", style: "height: 50px; width: 50px;") %>
+            <% end %>
+            <strong class="ml-2"><%= post.user.username %></strong>
+          </div>
+        </div>
+        <div class="col-md-10">
+          <div class="card-body">
+            <h5 class="card-title"><%= post.content %></h5>
+            <%= link_to 'View', post_path(post), class: 'btn btn-secondary' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+
+
+  
 
