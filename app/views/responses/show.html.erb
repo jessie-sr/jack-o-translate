@@ -1,0 +1,7 @@
+<%# app/views/posts/show.html.erb %>
+<p><%= @post.content %></p>
+<!-- Display responses here -->
+<%= form_with(model: [ @post, @post.responses.build ]) do |form| %>
+  <%= form.text_area :content %>
+  <%= form.submit "Submit Response" %>
+<% end %>
