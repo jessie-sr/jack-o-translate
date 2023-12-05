@@ -92,3 +92,5 @@ gem 'omniauth-rails_csrf_protection'
 gem 'font-awesome-rails'
 
 gem 'sassc-rails'
+
+gem 'image_processing', '~> 1.2'
