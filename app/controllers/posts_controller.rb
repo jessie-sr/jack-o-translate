@@ -2,14 +2,18 @@ class PostsController < ApplicationController
     before_action :authenticate_user!
   
     def index
-      @posts = current_user.posts
-  
-      if params[:time_filter] == 'day'
-        @posts = @posts.where('created_at >= ?', 1.day.ago)
-      elsif params[:time_filter] == 'week'
-        @posts = @posts.where('created_at >= ?', 1.week.ago)
-      end
-    end
+        if params[:user_filter] == 'mine'
+          @posts = current_user.posts
+        else
+          @posts = Post.all
+        end
+      
+        if params[:time_filter] == 'day'
+          @posts = @posts.where('created_at >= ?', 1.day.ago)
+        elsif params[:time_filter] == 'week'
+          @posts = @posts.where('created_at >= ?', 1.week.ago)
+        end
+    end      
   
     def new
       @post = Post.new
