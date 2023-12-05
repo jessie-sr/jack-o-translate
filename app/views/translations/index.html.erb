@@ -1,13 +1,29 @@
-<%= form_with url: translations_path, method: :get, local: true, class: 'custom custom-form-spacing', id: 'filter_form' do %>
-  <div class="form-check form-check-inline mr-3">
-    <%= check_box_tag 'time_filter', 'day', params[:time_filter] == 'day', id: 'filter_day', class: 'form-check-input', onchange: 'submitForm()' %>
-    <%= label_tag 'filter_day', 'Past day', class: 'form-check-label' %>
+<div class="d-flex align-items-center mb-3">
+  <%= form_with url: translations_path, method: :get, local: true, class: 'custom custom-form-spacing', id: 'filter_form' do %>
+    <div class="form-check form-check-inline mr-3">
+      <%= check_box_tag 'time_filter', 'day', params[:time_filter] == 'day', id: 'filter_day', class: 'form-check-input', onchange: 'submitForm()' %>
+      <%= label_tag 'filter_day', 'Past day', class: 'form-check-label' %>
+    </div>
+    <div class="form-check form-check-inline">
+      <%= check_box_tag 'time_filter', 'week', params[:time_filter] == 'week', id: 'filter_week', class: 'form-check-input', onchange: 'submitForm()' %>
+      <%= label_tag 'filter_week', 'Past week', class: 'form-check-label' %>
+    </div>
+  <% end %>
+
+  <div class="ml-auto">
+    <%= link_to 'New Translation', new_translation_path, class: 'btn btn-dark mr-2', style: 'width: 186px;' %>
   </div>
-  <div class="form-check form-check-inline">
-    <%= check_box_tag 'time_filter', 'week', params[:time_filter] == 'week', id: 'filter_week', class: 'form-check-input', onchange: 'submitForm()' %>
-    <%= label_tag 'filter_week', 'Past week', class: 'form-check-label' %>
-  </div>
-<% end %>
+
+  <!--
+    <% if user_signed_in? %>
+      <%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-light', style: 'width: 186px;' %>
+    <% else %>
+      <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-dark mr-2' %>
+      <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-light' %>
+    <% end %>
+  -->
+  
+</div>
 
 <div class="table-responsive">
   <table class="table table-striped table-hover table-bordered col-md-12" id="translations">
@@ -50,15 +66,4 @@
       <% end %>
     </tbody>
   </table>
-</div>
-
-<div class="d-flex align-items-center">
-  <%= link_to 'New Translation', new_translation_path, class: 'btn btn-dark mr-2', style: 'width: 186px;' %>
-
-  <% if user_signed_in? %>
-    <%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-light', style: 'width: 186px;' %>
-  <% else %>
-    <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-dark mr-2' %>
-    <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-light' %>
-  <% end %>
 </div>
