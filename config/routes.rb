@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :translations
   resources :users
+  resources :posts do
+    resources :responses
+  end
   # Defines the root path route ("/")
   root to: 'translations#index'
 
