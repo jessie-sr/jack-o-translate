@@ -2,10 +2,26 @@
 
 <%= link_to 'New Request', new_post_path %>
 
+<%= form_with url: posts_path, method: :get, local: true, class: 'custom custom-form-spacing', id: 'posts_filter_form' do %>
+    <div class="form-check">
+        <%= check_box_tag 'user_filter', 'mine', params[:user_filter] == 'mine', id: 'filter_mine', class: 'form-check-input', onchange: 'this.form.submit();' %>
+        <%= label_tag 'filter_mine', 'My Posts', class: 'form-check-label' %>
+    </div>
+    <div class="form-check form-check-inline mr-3">
+      <%= check_box_tag 'time_filter', 'day', params[:time_filter] == 'day', id: 'filter_day', class: 'form-check-input', onchange: 'submitForm()' %>
+      <%= label_tag 'filter_day', 'Past day', class: 'form-check-label' %>
+    </div>
+    <div class="form-check form-check-inline">
+      <%= check_box_tag 'time_filter', 'week', params[:time_filter] == 'week', id: 'filter_week', class: 'form-check-input', onchange: 'submitForm()' %>
+      <%= label_tag 'filter_week', 'Past week', class: 'form-check-label' %>
+    </div>
+<% end %>
+
 <% @posts.each do |post| %>
   <div>
-    <h3><%= post.content %></h3>  <!-- Customize as per your Post model attributes -->
+    <h3><%= post.content %></h3>
+    <!-- Display other post details here -->
     <%= link_to 'View', post_path(post) %>
-    <!-- Add more post details here -->
   </div>
 <% end %>
+
