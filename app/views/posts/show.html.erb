@@ -34,6 +34,9 @@
   <% end %>
 </div>
 
+
+<h4><i class="fa fa-comments mr-2 mt-4"></i>Comments</h4>
+
 <%= form_with(model: [ @post, Response.new ], local: true) do |form| %>
     <!-- Container for the entire form -->
     <div class="form-group my-4">
@@ -50,8 +53,6 @@
     </div>
   </div>
 <% end %>  
-
-<h4><i class="fa fa-comments mr-2 mt-4"></i>Comments</h4>
 
 <% @post.responses.each do |response| %>
   <div class="card my-3 p-3">
