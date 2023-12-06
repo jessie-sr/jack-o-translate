@@ -5,16 +5,15 @@
         <div id="main-wrapper">
             <div class="row">
                 <div class="col-lg-5 col-xl-3">
-                    <div class="card card-white grid-margin">
-                        <div class="card-heading clearfix">
-                            <h4 class="card-title">User Profile</h4>
-                        </div>
+                    <div class="card card-white grid-margin text-center">
                         <div class="card-body user-profile-card mb-3">
-                            <% if @user.profile_image.attached? %>
-                              <%= image_tag(@user.profile_image, alt: "Profile Image", class: "rounded-circle", style: "height: 150px; width: 150px;") %>
-                            <% else %>
-                              <%= image_tag('default-profile.png', alt: 'Default profile', class: "rounded-circle", style: "height: 150px; width: 150px;") %>
-                            <% end %>
+                            <div class="py-2">
+                                <% if @user.profile_image.attached? %>
+                                  <%= image_tag(@user.profile_image, alt: "Profile Image", class: "rounded-circle", style: "height: 150px; width: 150px;") %>
+                                <% else %>
+                                  <%= image_tag('default-profile.png', alt: 'Default profile', class: "rounded-circle", style: "height: 150px; width: 150px;") %>
+                                <% end %>
+                            </div>
                             <h4 class="text-center h6 mt-2"><%= @user.username %></h4>
                             <p class="text-center small">Email: <%= @user.email %></p>
                             <button class="btn btn-theme btn-sm">Follow</button>
