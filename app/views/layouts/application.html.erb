@@ -25,25 +25,26 @@
       <h4 class="ml-3 mr-2 my-1">Jack</h4>
       <%= image_tag('icon-white.png', size: "28x28", alt: "App icon") %>
       <h4 class="ml-2 my-1">Translate</h4>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to 'Home', translations_path, class: 'nav-link active', aria: { current: 'page' } %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'JPortal', posts_path, class: 'nav-link active', aria: { current: 'page' } %>
-        </li>
-        <li class="nav-item">
-          <% if user_signed_in? %>
-            <%= link_to 'Profile', user_path(current_user), class: 'nav-link active', aria: { current: 'page' } %>
-          <% end %>
-        </li>
-        <li class="nav-item">
-          <% if user_signed_in? %>
-            <%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link active', aria: { current: 'page' } %>
-          <% end %>
-        </li>
-      </ul>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <%= link_to 'Home', translations_path, class: 'nav-link active', aria: { current: 'page' } %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'JPortal', posts_path, class: 'nav-link active', aria: { current: 'page' } %>
+          </li>
+          <li class="nav-item">
+            <% if user_signed_in? %>
+              <%= link_to 'Profile', user_path(current_user), class: 'nav-link active', aria: { current: 'page' } %>
+            <% end %>
+          </li>
+          <li class="nav-item">
+            <% if user_signed_in? %>
+              <%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link active', aria: { current: 'page' } %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
   
