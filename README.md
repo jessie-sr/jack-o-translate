@@ -1,4 +1,4 @@
-# Jack O Translate
+# Jack 🎃 Translate
 
 Jack O Translate is a versatile translation app that offers translation capabilities between a wide range of languages, including unique features like emoji and kaomoji translations. The app's standout functionality is its ability to customize the tone and context of translations, achieved through integration with the OpenAI API.
 
