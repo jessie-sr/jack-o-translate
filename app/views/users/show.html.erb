@@ -1,18 +1,59 @@
 <%# app/views/users/show.html.erb %>
 
-<h2>User Profile</h2>
+<div class="container">
+    <div class="page-inner no-page-title">
+        <div id="main-wrapper">
+            <div class="row">
+                <div class="col-lg-5 col-xl-3">
+                    <div class="card card-white grid-margin">
+                        <div class="card-heading clearfix">
+                            <h4 class="card-title">User Profile</h4>
+                        </div>
+                        <div class="card-body user-profile-card mb-3">
+                            <% if @user.profile_image.attached? %>
+                              <%= image_tag(@user.profile_image, alt: "Profile Image", class: "rounded-circle", style: "height: 150px; width: 150px;") %>
+                            <% else %>
+                              <%= image_tag('default-profile.png', alt: 'Default profile', class: "rounded-circle", style: "height: 150px; width: 150px;") %>
+                            <% end %>
+                            <h4 class="text-center h6 mt-2"><%= @user.username %></h4>
+                            <p class="text-center small">Email: <%= @user.email %></p>
+                            <button class="btn btn-theme btn-sm">Follow</button>
+                            <button class="btn btn-theme btn-sm">Message</button>
+                            <%= link_to 'Edit Profile', edit_user_registration_path %>
+                            <%= link_to 'Back', root_path %>
+                        </div>
+                    </div>
+                </div>
 
-<div class="user-info">
-  <% if @user.profile_image.attached? %>
-    <%= image_tag(@user.profile_image, alt: "Profile Image", size: "150x150") %>
-  <% end %>
+                <div class="col-lg-7 col-xl-6">
+                    <div class="card card-white grid-margin">
+                        <div class="card-body">
+                            <div class="post">
+                            </div>
+                        </div>
+                    </div>
 
-  <p><strong>Username:</strong> <%= @user.username %></p>
-  <p><strong>Email:</strong> <%= @user.email %></p>
+                    <div class="card card-white grid-margin">
+                        <div class="card-body">
+                            <div class="post">
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-  <!-- Add other user info you wish to display -->
+                <div class="col-lg-12 col-xl-3">
+                    <div class="card card-white grid-margin">
+                        <div class="card-heading clearfix">
+                            <h4 class="card-title">Suggestions</h4>
+                        </div>
+                        <div class="card-body">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card card-white grid-margin">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-<%= link_to 'Edit Profile', edit_user_registration_path %>
-<%= link_to 'Back', root_path %>
-
