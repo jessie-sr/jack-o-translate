@@ -1,0 +1,80 @@
+.custom-style {
+    background-color: #f0f0f0; /* Example background color */
+    border: 1px solid #f0f0f0;  /* Example border */
+    border-radius: 0.25rem;     /* Example border radius */
+    /* Add other styles as needed */
+}
+
+.custom-form-spacing {
+  margin-top: -8px; /* or any other value */
+  margin-bottom: 8px; /* existing mb-2 equivalent */
+}
+
+.table td:first-child, .table th:first-child {
+    border-right: none;
+  }
+  .table td:last-child, .table th:last-child {
+    border-left: none;
+  }
+  
+  .table td:not(:first-child):not(:last-child),
+  .table th:not(:first-child):not(:last-child) {
+    border-right: none;
+    border-left: none;
+  }
+
+/* Styles for the button containing the icon and label */
+.icon-btn {
+    position: relative; /* Required for absolute positioning of child elements */
+    display: inline-block;
+  }
+  
+  /* Styles for the icon label (tooltip text) */
+  .icon-label {
+    display: none;
+    position: absolute;
+    bottom: 110%; /* Position above the icon */
+    left: 50%; /* Centering the label */
+    transform: translateX(-50%); /* Adjust horizontally */
+    padding-left: 6px;
+    padding-right: 6px;
+    background-color: #000; /* Background of the tooltip */
+    color: #fff; /* Text color */
+    text-align: center;
+    border-radius: 4px;
+    white-space: nowrap; /* Keeps the text in a single line */
+    font-size: 12px; 
+  }
+  
+  /* Styles for the arrow pointing downwards from the tooltip */
+  .icon-label::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #000 transparent transparent transparent;
+    transform: translateX(-50%);
+  }
+  
+  /* Show label on hover */
+  .icon-btn:hover .icon-label {
+    display: block;
+  }
+  
+.card-hover-effect:hover {
+  background-color: #aeaeae; /* Adjust the color to a darker shade as needed */
+  transition: background-color 0.3s ease; /* Smooth transition for the hover effect */
+}
+
+.nav-link-custom {
+  color: #ffffff; /* Replace with your desired color */
+  margin-right: 15px; /* Adjust the distance between links */
+}
+
+/* Custom styling for nav-link on hover */
+.nav-link-custom:hover {
+  color: #aeaeae; /* Replace with your desired hover color */
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL2FwcC9hc3NldHMvc3R5bGVzaGVldHMvY3VzdG9tLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiJjdXN0b20uY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmN1c3RvbS1zdHlsZSB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2YwZjBmMDsgLyogRXhhbXBsZSBiYWNrZ3JvdW5kIGNvbG9yICovXG4gICAgYm9yZGVyOiAxcHggc29saWQgI2YwZjBmMDsgIC8qIEV4YW1wbGUgYm9yZGVyICovXG4gICAgYm9yZGVyLXJhZGl1czogMC4yNXJlbTsgICAgIC8qIEV4YW1wbGUgYm9yZGVyIHJhZGl1cyAqL1xuICAgIC8qIEFkZCBvdGhlciBzdHlsZXMgYXMgbmVlZGVkICovXG59XG5cbi5jdXN0b20tZm9ybS1zcGFjaW5nIHtcbiAgbWFyZ2luLXRvcDogLThweDsgLyogb3IgYW55IG90aGVyIHZhbHVlICovXG4gIG1hcmdpbi1ib3R0b206IDhweDsgLyogZXhpc3RpbmcgbWItMiBlcXVpdmFsZW50ICovXG59XG5cbi50YWJsZSB0ZDpmaXJzdC1jaGlsZCwgLnRhYmxlIHRoOmZpcnN0LWNoaWxkIHtcbiAgICBib3JkZXItcmlnaHQ6IG5vbmU7XG4gIH1cbiAgLnRhYmxlIHRkOmxhc3QtY2hpbGQsIC50YWJsZSB0aDpsYXN0LWNoaWxkIHtcbiAgICBib3JkZXItbGVmdDogbm9uZTtcbiAgfVxuICBcbiAgLnRhYmxlIHRkOm5vdCg6Zmlyc3QtY2hpbGQpOm5vdCg6bGFzdC1jaGlsZCksXG4gIC50YWJsZSB0aDpub3QoOmZpcnN0LWNoaWxkKTpub3QoOmxhc3QtY2hpbGQpIHtcbiAgICBib3JkZXItcmlnaHQ6IG5vbmU7XG4gICAgYm9yZGVyLWxlZnQ6IG5vbmU7XG4gIH1cblxuLyogU3R5bGVzIGZvciB0aGUgYnV0dG9uIGNvbnRhaW5pbmcgdGhlIGljb24gYW5kIGxhYmVsICovXG4uaWNvbi1idG4ge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTsgLyogUmVxdWlyZWQgZm9yIGFic29sdXRlIHBvc2l0aW9uaW5nIG9mIGNoaWxkIGVsZW1lbnRzICovXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB9XG4gIFxuICAvKiBTdHlsZXMgZm9yIHRoZSBpY29uIGxhYmVsICh0b29sdGlwIHRleHQpICovXG4gIC5pY29uLWxhYmVsIHtcbiAgICBkaXNwbGF5OiBub25lO1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBib3R0b206IDExMCU7IC8qIFBvc2l0aW9uIGFib3ZlIHRoZSBpY29uICovXG4gICAgbGVmdDogNTAlOyAvKiBDZW50ZXJpbmcgdGhlIGxhYmVsICovXG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKC01MCUpOyAvKiBBZGp1c3QgaG9yaXpvbnRhbGx5ICovXG4gICAgcGFkZGluZy1sZWZ0OiA2cHg7XG4gICAgcGFkZGluZy1yaWdodDogNnB4O1xuICAgIGJhY2tncm91bmQtY29sb3I6ICMwMDA7IC8qIEJhY2tncm91bmQgb2YgdGhlIHRvb2x0aXAgKi9cbiAgICBjb2xvcjogI2ZmZjsgLyogVGV4dCBjb2xvciAqL1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgd2hpdGUtc3BhY2U6IG5vd3JhcDsgLyogS2VlcHMgdGhlIHRleHQgaW4gYSBzaW5nbGUgbGluZSAqL1xuICAgIGZvbnQtc2l6ZTogMTJweDsgXG4gIH1cbiAgXG4gIC8qIFN0eWxlcyBmb3IgdGhlIGFycm93IHBvaW50aW5nIGRvd253YXJkcyBmcm9tIHRoZSB0b29sdGlwICovXG4gIC5pY29uLWxhYmVsOjphZnRlciB7XG4gICAgY29udGVudDogJyc7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogMTAwJTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgYm9yZGVyLXdpZHRoOiA1cHg7XG4gICAgYm9yZGVyLXN0eWxlOiBzb2xpZDtcbiAgICBib3JkZXItY29sb3I6ICMwMDAgdHJhbnNwYXJlbnQgdHJhbnNwYXJlbnQgdHJhbnNwYXJlbnQ7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKC01MCUpO1xuICB9XG4gIFxuICAvKiBTaG93IGxhYmVsIG9uIGhvdmVyICovXG4gIC5pY29uLWJ0bjpob3ZlciAuaWNvbi1sYWJlbCB7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gIH1cbiAgXG4uY2FyZC1ob3Zlci1lZmZlY3Q6aG92ZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjYWVhZWFlOyAvKiBBZGp1c3QgdGhlIGNvbG9yIHRvIGEgZGFya2VyIHNoYWRlIGFzIG5lZWRlZCAqL1xuICB0cmFuc2l0aW9uOiBiYWNrZ3JvdW5kLWNvbG9yIDAuM3MgZWFzZTsgLyogU21vb3RoIHRyYW5zaXRpb24gZm9yIHRoZSBob3ZlciBlZmZlY3QgKi9cbn1cblxuLm5hdi1saW5rLWN1c3RvbSB7XG4gIGNvbG9yOiAjZmZmZmZmOyAvKiBSZXBsYWNlIHdpdGggeW91ciBkZXNpcmVkIGNvbG9yICovXG4gIG1hcmdpbi1yaWdodDogMTVweDsgLyogQWRqdXN0IHRoZSBkaXN0YW5jZSBiZXR3ZWVuIGxpbmtzICovXG59XG5cbi8qIEN1c3RvbSBzdHlsaW5nIGZvciBuYXYtbGluayBvbiBob3ZlciAqL1xuLm5hdi1saW5rLWN1c3RvbTpob3ZlciB7XG4gIGNvbG9yOiAjYWVhZWFlOyAvKiBSZXBsYWNlIHdpdGggeW91ciBkZXNpcmVkIGhvdmVyIGNvbG9yICovXG59Il19 */

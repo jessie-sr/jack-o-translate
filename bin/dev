@@ -1,0 +1,4 @@
+#!/bin/bash
+# Start the Rails server
+rake assets:precompile
+bin/rails server

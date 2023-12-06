@@ -63,8 +63,38 @@
     display: block;
   }
   
-  .card-hover-effect:hover {
-    background-color: #aeaeae; /* Adjust the color to a darker shade as needed */
-    transition: background-color 0.3s ease; /* Smooth transition for the hover effect */
-  }
-  
+.card-hover-effect:hover {
+  background-color: #eaeaea; /* Adjust the color to a darker shade as needed */
+  transition: background-color 0.3s ease; /* Smooth transition for the hover effect */
+}
+
+.nav-link-custom {
+  color: #ffffff; /* Replace with your desired color */
+  margin-right: 15px; /* Adjust the distance between links */
+  margin-top: 2px;
+}
+
+/* Custom styling for nav-link on hover */
+.nav-link-custom:hover {
+  color: #d0d0d0; /* Replace with your desired hover color */
+  transition: color 0.3s ease;
+}
+
+.nav-btn-custom {
+  color: #ffffff;
+  background-color: rgb(84, 86, 94);
+  padding: 5px; /* Adjust padding for vertical height */
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  width: 120px;
+  border: none; /* Remove border */
+  box-shadow: none; /* Remove shadow for a flat appearance */
+  border-radius: 0.25rem; /* Optional: for a completely square look */
+}
+
+.nav-btn-custom:hover {
+  color: #d0d0d0;
+  background-color: #343a40; /* Replace with your desired hover color */
+  transition: color 0.3s ease;
+}

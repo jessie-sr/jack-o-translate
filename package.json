@@ -1,6 +1,13 @@
 {
   "name": "jack-o-translate",
   "engines": {
-    "node": "14.x"
+    "node": ">=14.0.0"
+  },
+  "scripts": {
+    "build:css": "postcss app/assets/stylesheets/application.css -o dist/application.css"
+  },
+  "dependencies": {
+    "postcss": "^8.4.32",
+    "postcss-cli": "^11.0.0"
   }
 }
