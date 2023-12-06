@@ -1,6 +1,9 @@
 <h2>Edit Translation Request</h2>
 
 <%= form_with model: @post, local: true do |form| %>
+  <%= form.label :subject %>
+  <%= form.text_area :subject %>
+
   <%= form.label :content %>
   <%= form.text_area :content %>
 

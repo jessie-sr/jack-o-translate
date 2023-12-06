@@ -63,3 +63,8 @@
     display: block;
   }
   
+  .card-hover-effect:hover {
+    background-color: #aeaeae; /* Adjust the color to a darker shade as needed */
+    transition: background-color 0.3s ease; /* Smooth transition for the hover effect */
+  }
+  

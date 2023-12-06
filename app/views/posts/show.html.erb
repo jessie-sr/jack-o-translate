@@ -1,10 +1,38 @@
-<h2>Translation Request</h2>
+<div class="card mb-3 p-3">
+  <div class="row no-gutters align-items-center">
+    <div class="col-md-1 text-center">
+        <div class="py-2">
+            <% if @post.user.profile_image.attached? %>
+                <%= image_tag(@post.user.profile_image, alt: @post.user.username, class: "rounded-circle", style: "height: 70px; width: 70px;") %>
+            <% else %>
+                <%= image_tag('default-profile.png', alt: 'Default profile', class: "rounded-circle", style: "height: 70px; width: 70px;") %>
+            <% end %>
+            <strong class="small"><%= @post.user.username %></strong>
+        </div>
+    </div>
+    <div class="col-md-11">
+      <div class="card-body">
+        <h5 class="card-title"><%= @post.subject %></h5>
+        <hr class="mt-2 mb-3">
+        <p class="card-text"><%= @post.content %></p>
+        <p class="card-text"><small class="text-muted">Last updated at: <%= @post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%B %d, %Y at %I:%M %p") %></small></p>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p><%= @post.content %></p>
-<!-- Display other post details here -->
-
-<%= link_to 'Back', posts_path, class: 'btn btn-secondary' %>
-<%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+<div class="d-flex justify-content-end align-items-center">
+  <div class="col-2" style="margin-right: -15px;">
+    <%= link_to 'Back', posts_path, class: 'btn btn-light w-100' %>
+  </div>
+  <% if user_signed_in? && current_user.id == @post.user_id %>
+    <div class="col-2">
+        <%= form_with url: post_path(@post), method: :delete do %>
+        <%= submit_tag 'Delete', data: { confirm: "Are you sure?" }, class: 'btn btn-danger w-100' %>
+        <% end %>
+    </div>
+  <% end %>
+</div>
 
 <h3>Responses</h3>
 <% @post.responses.each do |response| %>
