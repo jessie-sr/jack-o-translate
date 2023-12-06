@@ -3,5 +3,36 @@
 <p><%= @post.content %></p>
 <!-- Display other post details here -->
 
-<%= link_to 'Back', posts_path %>
-<%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to 'Back', posts_path, class: 'btn btn-secondary' %>
+<%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+
+<h3>Responses</h3>
+<% @post.responses.each do |response| %>
+  <div class="card mb-2">
+    <div class="row no-gutters">
+      <div class="col-md-2 d-flex align-items-center">
+        <div class="p-2">
+          <% if response.user.profile_image.attached? %>
+            <%= image_tag(response.user.profile_image, alt: response.user.username, class: "rounded-circle", style: "height: 50px; width: 50px;") %>
+          <% else %>
+            <%= image_tag('default-profile.png', alt: 'Default profile', class: "rounded-circle", style: "height: 50px; width: 50px;") %>
+          <% end %>
+          <strong class="ml-2"><%= response.user.username %></strong>
+        </div>
+      </div>
+      <div class="col-md-10">
+        <div class="card-body">
+          <p class="card-text"><%= response.content %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= form_with(model: [ @post, Response.new ], local: true) do |form| %>
+  <div class="form-group">
+    <%= form.label :content, 'Your Response' %>
+    <%= form.text_area :content, class: 'form-control' %>
+  </div>
+  <%= form.submit 'Submit Response', class: 'btn btn-primary' %>
+<% end %>

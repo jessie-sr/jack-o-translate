@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :translations, dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_many :responses, dependent: :destroy
+  
   has_one_attached :profile_image
 
   before_save :set_username
