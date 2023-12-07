@@ -1,18 +1,35 @@
-<h2>Edit Translation Request</h2>
+<div class="container mt-4">
+  <h4 class="font-weight-bold mb-3">Update Post</h4>
 
-<%= form_with model: @post, local: true do |form| %>
-  <%= form.label :subject %>
-  <%= form.text_area :subject %>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %> alert-dismissible fade show" role="alert">
+      <%= value %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% end %>
 
-  <%= form.label :content %>
-  <%= form.text_area :content %>
+  <%= form_with model: @post, local: true do |form| %>
 
-  <%= form.label :language %>
-  <%= form.text_field :language %>
+    <div class="card card-white">
+      <div class="card-body">
+      
+        <div class="mb-3">
+          <%= form.label :subject, 'Subject', class: 'col-form-label font-weight-bold' %>
+          <%= form.text_field :subject, class: 'form-control custom-text-field' %>
+        </div>
 
-  <!-- Include other fields as necessary -->
+        <div class="mb-3">
+          <%= form.label :content, 'Content', class: 'col-form-label font-weight-bold' %>
+          <%= form.text_area :content, rows: 8, class: 'form-control custom-text-field' %>
+        </div>
 
-  <%= form.submit "Update Request" %>
-<% end %>
+      </div>
+    </div>
 
-<%= link_to 'Back', posts_path %>
+    <div class="mt-4 text-right">
+      <%= form.submit 'Update', class: 'btn btn-dark col-2 mr-2' %> 
+      <%= link_to 'Back', posts_path, class: 'btn btn-secondary col-2' %>
+    </div>
+      
+  <% end %>
+</div>
