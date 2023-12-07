@@ -23,8 +23,8 @@
   </div>
 
   <!-- Action Buttons -->
-  <div class="mt-4">
-    <%= link_to 'New Translation', new_translation_path, class: 'btn btn-dark mr-2 col-2' %>
+  <div class="mt-4 text-right">
+    <%= link_to 'New', new_translation_path, class: 'btn btn-dark mr-2 col-2' %>
     <%= link_to 'Back', translations_path, class: 'btn btn-secondary mr-2 col-2' %>
     <%= link_to 'Delete', translation_path(@translation), 'data-method': 'delete', 'data-confirm': 'Are you sure?', class: 'btn btn-danger col-2' %>
   </div>
