@@ -14,9 +14,9 @@
       <% if devise_mapping.rememberable? %>
       <div class="form-group row mt-3">
         <div class="col-sm-12">
-          <div class="custom-control custom-checkbox text-left"> <!-- Removed column sizing here -->
-            <%= f.check_box :remember_me, class: 'custom-control-input' %> <!-- Removed inline styling -->
-            <%= f.label :remember_me, class: 'custom-control-label' %> <!-- Moved label here and changed class -->
+          <div class="custom-control custom-checkbox text-left">
+            <%= f.check_box :remember_me, class: 'custom-control-input' %>
+            <%= f.label :remember_me, class: 'custom-control-label' %>
           </div>
         </div>
       </div>

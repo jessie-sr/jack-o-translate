@@ -10,6 +10,9 @@
     background-color: #f5f5f6; /* Example background color */
     border: 1px solid #f5f5f6;  /* Example border */
     border-radius: 0.25rem;     /* Example border radius */
+    height: 38px;
+    padding-left: 15px;
+    padding-right: 15px;
     /* Add other styles as needed */
 }
 
@@ -147,6 +150,12 @@
   background-color: #ffffff;
   border: 1px solid transparent;
   box-shadow: 0 0.08rem 0.02rem rgba(75, 75, 90, 0.075);
+  width: 280px;
+}
+
+.btn.btn-outline-secondary:hover {
+  background-color: #a3a3a9; /* Adjust the color to a darker shade as needed */
+  transition: background-color 0.3s ease; /* Smooth transition for the hover effect */
 }
 
 .custom-field {
