@@ -4,23 +4,23 @@
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "auth-form" }) do |f| %>
       <div class="field mt-3">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", style: 'width: 280px;' %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: 'custom-field' %>
       </div>
 
       <div class="field mt-3">
-        <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", style: 'width: 280px;' %>
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: 'custom-field' %>
       </div>
 
       <% if devise_mapping.rememberable? %>
-        <div class="form-group row mt-3">
-          <div class="col-sm-6 text-left"> <!-- Adjust the column size as needed -->
-            <%= f.check_box :remember_me, class: 'form-check-input', style: 'margin-left: 0px;' %>
-          </div>
-          <div class="col-sm-10 text-left ml-4">
-            <%= f.label :remember_me, class: 'form-check-label' %>
+      <div class="form-group row mt-3">
+        <div class="col-sm-12">
+          <div class="custom-control custom-checkbox text-left"> <!-- Removed column sizing here -->
+            <%= f.check_box :remember_me, class: 'custom-control-input' %> <!-- Removed inline styling -->
+            <%= f.label :remember_me, class: 'custom-control-label' %> <!-- Moved label here and changed class -->
           </div>
         </div>
-      <% end %>
+      </div>
+    <% end %>    
 
       <div class="actions">
         <%= f.submit "Log in", class: 'btn btn-dark mb-2', style: 'width: 280px;'%>

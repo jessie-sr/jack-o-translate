@@ -132,8 +132,35 @@
   border-top: 1px solid rgba(0,0,0,.125);
 }
 
+.btn.btn-dark {
+  border: 1px solid transparent;
+  box-shadow: 0 0.08rem 0.02rem rgba(75, 75, 90, 0.075);
+}
+
 .btn.btn-secondary {
   color: #ffffff;
   background-color: #a3a3a9;
   border-color: #a3a3a9;
+}
+
+.btn.btn-outline-secondary {
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  box-shadow: 0 0.08rem 0.02rem rgba(75, 75, 90, 0.075);
+}
+
+.custom-field {
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  box-shadow: 0 0.08rem 0.02rem rgba(75, 75, 90, 0.075);
+  height: 38px;
+  width: 280px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.custom-checkbox .custom-control-input {
+  border: none;
+  outline: none; /* To remove the focus outline */
 }
