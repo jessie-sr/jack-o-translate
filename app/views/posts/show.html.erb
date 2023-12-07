@@ -27,6 +27,9 @@
   </div>
   <% if user_signed_in? && current_user.id == @post.user_id %>
     <div class="col-2" style="margin-left: -15px;">
+        <%= link_to 'Update', edit_post_path(@post), class: 'btn btn-dark w-100' %>
+    </div>
+    <div class="col-2" style="margin-left: -15px;">
         <%= form_with url: post_path(@post), method: :delete do %>
             <%= submit_tag 'Delete', data: { confirm: "Are you sure?" }, class: 'btn btn-danger w-100' %>
         <% end %>
