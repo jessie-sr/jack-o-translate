@@ -103,13 +103,12 @@
 }
 
 .page-inner.no-page-title {
-  padding-top: 30px;
+  padding-top: 0px;
 }
 
 .page-inner {
   position: relative;
   min-height: calc(100% - 56px);
-  padding: 20px 30px 40px 30px;
 }
 
 .card.card-white {
