@@ -1,6 +1,14 @@
-.custom-style {
-    background-color: #f0f0f0; /* Example background color */
-    border: 1px solid #f0f0f0;  /* Example border */
+.table {
+  margin-bottom: 0rem;
+}
+
+.table-responsive {
+  background-color: #ffffff;
+}
+
+.custom-text-field {
+    background-color: #f5f5f6; /* Example background color */
+    border: 1px solid #f5f5f6;  /* Example border */
     border-radius: 0.25rem;     /* Example border radius */
     /* Add other styles as needed */
 }
@@ -62,11 +70,6 @@
   .icon-btn:hover .icon-label {
     display: block;
   }
-  
-.card-hover-effect:hover {
-  background-color: #eaeaea; /* Adjust the color to a darker shade as needed */
-  transition: background-color 0.3s ease; /* Smooth transition for the hover effect */
-}
 
 .nav-link-custom {
   color: #ffffff; /* Replace with your desired color */
@@ -97,4 +100,41 @@
   color: #d0d0d0;
   background-color: #343a40; /* Replace with your desired hover color */
   transition: color 0.3s ease;
+}
+
+.page-inner.no-page-title {
+  padding-top: 30px;
+}
+
+.page-inner {
+  position: relative;
+  min-height: calc(100% - 56px);
+  padding: 20px 30px 40px 30px;
+}
+
+.card.card-white {
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  box-shadow: 0 0.08rem 0.02rem rgba(75, 75, 90, 0.075);
+}
+
+  
+.card.card-white-hover:hover {
+  background-color: rgb(231, 231, 233); /* Adjust the color to a darker shade as needed */
+  transition: background-color 0.3s ease; /* Smooth transition for the hover effect */
+}
+
+.grid-margin {
+  margin-bottom: 2rem;
+}
+
+.custom-bar {
+  border-top: 1px solid rgba(0,0,0,.125);
+}
+
+.btn.btn-secondary {
+  color: #ffffff;
+  background-color: #a3a3a9;
+  border-color: #a3a3a9;
 }
