@@ -1,17 +1,19 @@
 <div class="d-flex align-items-center mb-3">
 
   <%= form_with url: posts_path, method: :get, local: true, class: 'flex-grow-1', id: 'posts_filter_form' do %>
-    <div class="form-check form-check-inline mr-3">
-      <%= check_box_tag 'user_filter', 'mine', params[:user_filter] == 'mine', id: 'filter_mine', class: 'form-check-input', onchange: 'this.form.submit();' %>
-      <%= label_tag 'filter_mine', 'My Posts', class: 'form-check-label' %>
+    <div class="row">
+    <div class="custom-control custom-checkbox mx-3">
+      <%= check_box_tag 'user_filter', 'mine', params[:user_filter] == 'mine', id: 'filter_mine', class: 'custom-control-input', onchange: 'this.form.submit();' %>
+      <%= label_tag 'filter_mine', 'My Posts', class: 'custom-control-label' %>
     </div>
-    <div class="form-check form-check-inline mr-3">
-      <%= check_box_tag 'time_filter', 'day', params[:time_filter] == 'day', id: 'filter_day', class: 'form-check-input', onchange: 'submitForm()' %>
-      <%= label_tag 'filter_day', 'Past day', class: 'form-check-label' %>
+    <div class="custom-control custom-checkbox mr-3">
+      <%= check_box_tag 'time_filter', 'day', params[:time_filter] == 'day', id: 'filter_day', class: 'custom-control-input', onchange: 'submitForm()' %>
+      <%= label_tag 'filter_day', 'Past day', class: 'custom-control-label' %>
     </div>
-    <div class="form-check form-check-inline">
-      <%= check_box_tag 'time_filter', 'week', params[:time_filter] == 'week', id: 'filter_week', class: 'form-check-input', onchange: 'submitForm()' %>
-      <%= label_tag 'filter_week', 'Past week', class: 'form-check-label' %>
+    <div class="custom-control custom-checkbox">
+      <%= check_box_tag 'time_filter', 'week', params[:time_filter] == 'week', id: 'filter_week', class: 'custom-control-input', onchange: 'submitForm()' %>
+      <%= label_tag 'filter_week', 'Past week', class: 'custom-control-label' %>
+    </div>
     </div>
   <% end %>
 
