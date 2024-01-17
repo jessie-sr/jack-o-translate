@@ -30,6 +30,6 @@ class OpenAiService
 
   def create_prompt(text, language, tone, context)
     # Customize the prompt based on the tone and context
-    "Translate #{text} to #{language}. I wanna sound #{tone.downcase}. The context of the conversation is '#{context.downcase}'. Try to sound like a native speaker!"
+    "Please translate '#{text}' to '#{language}'. Make sure the translation sound #{tone.downcase}, native and natural. Adjust the sequence of words if necessary. Note that the context of the conversation is '#{context.downcase}'. Don't put the result of translation in quotes. "
   end
 end
