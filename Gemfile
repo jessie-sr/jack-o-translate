@@ -78,6 +78,7 @@ group :test do
   gem 'guard-rspec'
   gem 'rails-controller-testing'
   gem 'webmock' # automates re-running tests
+  gem 'simplecov', require: false
 end
 
 gem 'pg'
