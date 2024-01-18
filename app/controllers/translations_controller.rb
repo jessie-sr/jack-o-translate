@@ -13,8 +13,16 @@ class TranslationsController < ApplicationController
     end
   end
 
+  def show
+    @translation = current_user.translations.find(params[:id])
+  end
+
   def new
     @translation = Translation.new
+  end
+
+  def edit
+    @translation = current_user.translations.find(params[:id])
   end
 
   def create
@@ -46,21 +54,6 @@ class TranslationsController < ApplicationController
     # end
   end
 
-  def show
-    @translation = current_user.translations.find(params[:id])
-  end
-
-  def destroy
-    @translation = current_user.translations.find(params[:id])
-    @translation.destroy
-    flash[:notice] = "Translation '#{@translation.input_text}' deleted."
-    redirect_to translations_path
-  end
-
-  def edit
-    @translation = current_user.translations.find(params[:id])
-  end
-
   def update
     @translation = current_user.translations.find(params[:id])
 
@@ -75,6 +68,13 @@ class TranslationsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @translation = current_user.translations.find(params[:id])
+    @translation.destroy
+    flash[:notice] = "Translation '#{@translation.input_text}' deleted."
+    redirect_to translations_path
   end
 
   private

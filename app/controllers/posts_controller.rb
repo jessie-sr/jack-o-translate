@@ -17,8 +17,17 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def new
     @post = Post.new
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+    # This ensures that users can only edit their own posts
   end
 
   def create
@@ -28,15 +37,6 @@ class PostsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
-    @post = Post.find(params[:id])
-  end
-
-  def edit
-    @post = Post.find(params[:id])
-    # This ensures that users can only edit their own posts
   end
 
   def update

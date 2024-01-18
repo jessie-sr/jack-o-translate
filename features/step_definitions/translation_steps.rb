@@ -3,8 +3,8 @@
 # Add a declarative step here for populating the DB with movies.
 Given(/the following movies exist/) do |movies_table|
   movies_table.hashes.each do |movie|
-    Movie.create!(title: movie['title'],
-                  rating: movie['rating'],
+    Movie.create!(title:        movie['title'],
+                  rating:       movie['rating'],
                   release_date: Time.zone.parse(movie['release_date']))
   end
 end
@@ -43,7 +43,7 @@ end
 
 Then(/^I should see all the movies$/) do
   # Make sure that all the movies in the app are visible in the table
-  all_titles = Movie.all.pluck(:title).join(', ')
+  all_titles = Movie.pluck(:title).join(', ')
   steps %(
   Then I should see the following movies: #{all_titles}
 )

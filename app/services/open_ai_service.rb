@@ -4,14 +4,14 @@ require 'ruby/openai'
 
 class OpenAiService
   def initialize
-    @client = OpenAI::Client.new(access_token: ENV['OPENAI_API_KEY'])
+    @client = OpenAI::Client.new(access_token: ENV.fetch('OPENAI_API_KEY', nil))
   end
 
   def translate(text, language, tone, context)
     @client.chat(
       parameters: {
-        model: 'gpt-3.5-turbo',
-        messages: [{ role: 'user', content: create_prompt(text, language, tone, context) }],
+        model:       'gpt-3.5-turbo',
+        messages:    [{ role: 'user', content: create_prompt(text, language, tone, context) }],
         temperature: 0.7
       }
     ).dig('choices', 0, 'message', 'content')

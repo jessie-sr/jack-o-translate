@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def set_time_zone(&block)
-    Time.use_zone(current_user.time_zone, &block)
+  def set_time_zone(&)
+    Time.use_zone(current_user.time_zone, &)
   end
 
   protected
