@@ -70,6 +70,9 @@ end
 group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'rspec-rails'
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
+  gem 'haml-lint', require: false
 end
 
 group :test do
