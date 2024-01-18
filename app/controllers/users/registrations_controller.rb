@@ -1,4 +1,7 @@
-class Users::RegistrationsController < Devise::RegistrationsController
+# frozen_string_literal: true
+
+module Users
+  class RegistrationsController < Devise::RegistrationsController
     def send_reset_password_instructions
       current_user.send_reset_password_instructions
       redirect_to edit_user_registration_path, notice: 'Reset password instructions have been sent to your email.'
@@ -14,4 +17,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
     end
   end
-  
+end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -7,7 +9,7 @@ class User < ApplicationRecord
   has_many :translations, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :responses, dependent: :destroy
-  
+
   has_one_attached :profile_image
 
   before_save :set_username
@@ -17,7 +19,7 @@ class User < ApplicationRecord
       u.password = Devise.friendly_token[0, 20]
       # Add other attributes as needed, such as u.name
     end
-  
+
     unless user.confirmed?
       user.skip_confirmation!
       user.save!
@@ -28,6 +30,6 @@ class User < ApplicationRecord
   private
 
   def set_username
-    self.username = self.email if self.username.blank?
+    self.username = email if username.blank?
   end
 end
